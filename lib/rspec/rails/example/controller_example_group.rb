@@ -63,10 +63,10 @@ module RSpec
             controller_class :
             ApplicationController
 
-          metadata[:example_group][:described_class] = Class.new(base_class) do
+          metadata[:described_class] = Class.new(base_class) do
             def self.name; "AnonymousController"; end
           end
-          metadata[:example_group][:described_class].class_eval(&body)
+          metadata[:described_class].class_eval(&body)
 
           with_routing do |set|
             set.draw do |map|
